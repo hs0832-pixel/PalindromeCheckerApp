@@ -2,21 +2,26 @@
 public static void main(String[] args) {
 
     // Input string
-    String input = "noon";
+    String input = "civic";
 
-    // Create Stack
+    // Create Queue (FIFO)
+    Queue<Character> queue = new LinkedList<>();
+
+    // Create Stack (LIFO)
     Stack<Character> stack = new Stack<>();
 
-    // Push characters into stack
+    // Enqueue and Push characters
     for (int i = 0; i < input.length(); i++) {
-        stack.push(input.charAt(i));
+        char ch = input.charAt(i);
+        queue.add(ch);     // Enqueue
+        stack.push(ch);    // Push
     }
 
     boolean isPalindrome = true;
 
-    // Pop and compare
-    for (int i = 0; i < input.length(); i++) {
-        if (input.charAt(i) != stack.pop()) {
+    // Compare dequeue and pop
+    while (!queue.isEmpty()) {
+        if (queue.remove() != stack.pop()) {
             isPalindrome = false;
             break;
         }
