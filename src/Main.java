@@ -1,25 +1,27 @@
 
 
 
-    public static void main(String[] args) {
+public static void main(String[] args) {
 
-        // Hardcoded string
-        String text = "madam";
+    // Original String
+    String input = "madam";
 
-        // Variable to store reversed string
-        String reversed = "";
+    // Variable to store reversed string
+    String reversed = "";
 
-        // Reverse the string
-        for (int i = text.length() - 1; i >= 0; i--) {
-            reversed = reversed + text.charAt(i);
-        }
-
-        // Check if palindrome
-        boolean isPalindrome = text.equals(reversed);
-
-        // Display output in required format
-        System.out.println("Input text: " + text);
-        System.out.println("Is it a Palindrome? : " + isPalindrome);
+    // Iterate from last character to first
+    for (int i = input.length() - 1; i >= 0; i--) {
+        reversed = reversed + input.charAt(i);
     }
+
+    // Compare original and reversed string
+    boolean isPalindrome = input.equals(reversed);
+
+    // Display result
+    System.out.println("Input text: " + input);
+    System.out.println("Reversed text: " + reversed);
+    System.out.println("Is it a Palindrome? : " + isPalindrome);
+}
+
 
 
