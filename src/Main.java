@@ -2,31 +2,28 @@
 public static void main(String[] args) {
 
     // Input string
-    String input = "radar";
+    String input = "noon";
 
-    // Convert string to character array
-    char[] characters = input.toCharArray();
+    // Create Stack
+    Stack<Character> stack = new Stack<>();
 
-    // Two-pointer approach
-    int start = 0;
-    int end = characters.length - 1;
+    // Push characters into stack
+    for (int i = 0; i < input.length(); i++) {
+        stack.push(input.charAt(i));
+    }
 
     boolean isPalindrome = true;
 
-    while (start < end) {
-
-        if (characters[start] != characters[end]) {
+    // Pop and compare
+    for (int i = 0; i < input.length(); i++) {
+        if (input.charAt(i) != stack.pop()) {
             isPalindrome = false;
             break;
         }
-
-        start++;
-        end--;
     }
 
-    // Display result
+    // Required Output Format
     System.out.println("Input : " + input);
-    System.out.println("Is Palindrome? : " + isPalindrome);
+    System.out.println("Is palindrome? : " + isPalindrome);
 }
-
 
