@@ -1,27 +1,24 @@
-
 public static void main(String[] args) {
 
     // Input string
-    String input = "civic";
+    String input = "refer";
 
-    // Create Queue (FIFO)
-    Queue<Character> queue = new LinkedList<>();
+    // Create Deque
+    Deque<Character> deque = new ArrayDeque<>();
 
-    // Create Stack (LIFO)
-    Stack<Character> stack = new Stack<>();
-
-    // Enqueue and Push characters
+    // Insert characters into deque
     for (int i = 0; i < input.length(); i++) {
-        char ch = input.charAt(i);
-        queue.add(ch);     // Enqueue
-        stack.push(ch);    // Push
+        deque.addLast(input.charAt(i));
     }
 
     boolean isPalindrome = true;
 
-    // Compare dequeue and pop
-    while (!queue.isEmpty()) {
-        if (queue.remove() != stack.pop()) {
+    // Compare front and rear elements
+    while (deque.size() > 1) {
+        char front = deque.removeFirst();
+        char rear = deque.removeLast();
+
+        if (front != rear) {
             isPalindrome = false;
             break;
         }
@@ -29,6 +26,5 @@ public static void main(String[] args) {
 
     // Required Output Format
     System.out.println("Input : " + input);
-    System.out.println("Is palindrome? : " + isPalindrome);
+    System.out.println("Is Palindrome? : " + isPalindrome);
 }
-
